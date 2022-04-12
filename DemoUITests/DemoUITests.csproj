@@ -114,9 +114,9 @@
     <Compile Include="PageObjectModels\HomePage.cs" />
     <Compile Include="PageObjectModels\PayeePage.cs" />
     <Compile Include="PageObjectModels\PaymentPage.cs" />
-    <Compile Include="PaymentTests.cs" />
+    <Compile Include="RegressionTests\PaymentTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PayeeTests.cs" />
+    <Compile Include="RegressionTests\PayeeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

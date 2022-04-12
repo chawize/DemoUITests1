@@ -11,7 +11,7 @@ using FluentAssertions;
 namespace DemoUITests
 {
     [TestFixture]
-    [Category("SmokeTests")]
+    [Category("RegressionTests")]
     //[Parallelizable(ParallelScope.All)]
     public class PayeeTests
     {
