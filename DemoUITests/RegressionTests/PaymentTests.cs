@@ -3,22 +3,24 @@ using DemoUITests.PageObjectModels;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 
 namespace DemoUITests
 {
-    [TestFixture]
+    [TestFixture(typeof(ChromeDriver))]
+    [TestFixture(typeof(FirefoxDriver))]
     [Category("SmokeTests")]
-    public class PaymentTests
+    public class PaymentTests <Multi> where Multi : IWebDriver, new()
     {
         private const int WaitForSeconds = 10;
 
         [Test]
         [Description("TC5 - Go To Payments and transfer funds")]
-        //[Parallelizable(ParallelScope.All)]
+        [Parallelizable]
         public void TestNavigateToPayments()
         {
             const string transferAmount = "500";
-            using (IWebDriver driver = new ChromeDriver())
+            using (IWebDriver driver = new Multi())
             {
                 var homePage = new HomePage(driver);
                 homePage.NavigateTo();

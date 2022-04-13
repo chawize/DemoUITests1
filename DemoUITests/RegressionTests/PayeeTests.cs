@@ -5,15 +5,15 @@ using DemoUITests.PageObjectModels;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.UI;
-using FluentAssertions;
+using OpenQA.Selenium.Firefox;
 
 namespace DemoUITests
 {
-    [TestFixture]
+    [TestFixture(typeof(ChromeDriver))]
+    [TestFixture(typeof(FirefoxDriver))]
     [Category("RegressionTests")]
-    //[Parallelizable(ParallelScope.All)]
-    public class PayeeTests
+    [Parallelizable]
+    public class PayeeTests <Multi> where Multi :IWebDriver, new ()
     {
         private const int WaitForSeconds = 10;
         private const string PayeeName = "John Smith";
@@ -21,7 +21,7 @@ namespace DemoUITests
         [Description("TC1 - Verify user can navigate to Payees page using navigation menu")]
         public void TestPayeesPageLoad()
         {
-            using (IWebDriver driver = new ChromeDriver())
+            using (IWebDriver driver = new Multi())
             {
                 var homePage = new HomePage(driver);
                 homePage.NavigateTo();
@@ -36,7 +36,7 @@ namespace DemoUITests
 
         [Test]
         [Description("TC2 - Verify user can navigate to Payees page using navigation menu")]
-        //[Parallelizable(ParallelScope.All)]
+        [Parallelizable]
         public void TestAddNewPayee()
         {
             const string apmBank = "12";
@@ -44,7 +44,7 @@ namespace DemoUITests
             const string apmAccount = "1234567";
             const string apmSuffix = "001";
 
-            using (IWebDriver driver = new ChromeDriver())
+            using (IWebDriver driver = new Multi())
             {
                 var homePage = new HomePage(driver);
                 homePage.NavigateTo();
@@ -81,10 +81,10 @@ namespace DemoUITests
 
         [Test]
         [Description("TC3 - Verify that payee name is a required field")]
-        //[Parallelizable(ParallelScope.All)]
+        [Parallelizable]
         public void TestAddPayeeMissingName()
         {
-            using (IWebDriver driver = new ChromeDriver())
+            using (IWebDriver driver = new Multi())
             {
                 var homePage = new HomePage(driver);
                 homePage.NavigateTo();
@@ -115,10 +115,10 @@ namespace DemoUITests
 
         [Test]
         [Description("TC4 - Verify that payees can be sorted by name")]
-        //[Parallelizable(ParallelScope.All)]
+        [Parallelizable]
         public void TestPayeeListSortByName()
         {
-            using (IWebDriver driver = new ChromeDriver())
+            using (IWebDriver driver = new Multi())
             {
                 var homePage = new HomePage(driver);
                 homePage.NavigateTo();
