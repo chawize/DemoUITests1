@@ -6,11 +6,13 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.IE;
 
 namespace DemoUITests
 {
     [TestFixture(typeof(ChromeDriver))]
     [TestFixture(typeof(FirefoxDriver))]
+    [TestFixture(typeof(InternetExplorerDriver))]
     [Category("RegressionTests")]
     [Parallelizable]
     public class PayeeTests <Multi> where Multi :IWebDriver, new ()
