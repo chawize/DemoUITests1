@@ -11,7 +11,7 @@ namespace DemoUITests
     [TestFixture(typeof(ChromeDriver))]
     [TestFixture(typeof(FirefoxDriver))]
     [TestFixture(typeof(InternetExplorerDriver))]
-    [Category("SmokeTests")]
+    [Category("RegressionTests")]
     public class PaymentTests <Multi> where Multi : IWebDriver, new()
     {
         private const int WaitForSeconds = 10;
