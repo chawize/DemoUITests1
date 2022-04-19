@@ -17,6 +17,7 @@ namespace DemoUITests
     {
         private const int WaitForSeconds = 10;
         private const string PayeeName = "John Smith";
+
         [Test]
         [Description("TC1 - Verify user can navigate to Payees page using navigation menu")]
         public void TestPayeesPageLoad()
@@ -35,7 +36,7 @@ namespace DemoUITests
         }
 
         [Test]
-        [Description("TC2 - Verify user can navigate to Payees page using navigation menu")]
+        [Description("TC2 - Verify user can add new payee")]
         [Parallelizable]
         public void TestAddNewPayee()
         {
